@@ -4,8 +4,8 @@
 #include <locale>
 #include <map>
 
-/**@brief Facet is used to convert char strings in cp1251 encodings into
- * UNICODE*/
+/**@brief Facet is used to convert cyrillic char strings in cp1251 
+ * encoding into UNICODE*/
 template<class I, class E, class State>
 class codecvt_cp1251 : public std::codecvt<I, E, State>
 {
