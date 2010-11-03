@@ -63,7 +63,7 @@ protected:
       else if(0xE0 <= static_cast<unsigned char>(*from)
                    && static_cast<unsigned char>(*from) <=0xEF)
       {
-        *to = static_cast<I>(static_cast<unsigned char>(*from) + 0x360)
+        *to = static_cast<I>(static_cast<unsigned char>(*from) + 0x360);
       }
       else
       {
