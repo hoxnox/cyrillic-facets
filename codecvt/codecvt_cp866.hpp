@@ -46,7 +46,7 @@ protected:
     {
       if(to == to_end)
       {
-        from_next = from;
+        from_next = ++from;
         to_next = to;
         return partial;
       }
@@ -71,12 +71,8 @@ protected:
         s = in_tab.lower_bound(*from);
         if(s == in_tab.end())
         {
-          from_next = from + 1;
-          return error;
-        }
-        if(to == to_end)
-        {
-          to_next = to_end;
+          from_next = ++from;
+          to_next = ++to;
           return error;
         }
         *to = s->second;
@@ -98,7 +94,7 @@ protected:
     {
       if(to == to_end)
       {
-        from_next = from;
+        from_next = ++from;
         to_next = to;
         return partial;
       }
@@ -122,12 +118,8 @@ protected:
         s = out_tab.lower_bound(*from);
         if(s == out_tab.end())
         {
-          from_next = from + 1;
-          return error;
-        }
-        if(to == to_end)
-        {
-          to_next = to_end;
+          from_next = ++from;
+          to_next = ++to;
           return error;
         }
         *to = s->second;
