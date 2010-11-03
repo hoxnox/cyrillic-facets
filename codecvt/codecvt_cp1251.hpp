@@ -121,10 +121,10 @@ protected:
       {
         *to = static_cast<unsigned char>(*from);
       }
-      else if(0x410 <= static_cast<unsigned wchar_t>(*from)
-                    && static_cast<unsigned wchar_t>(*from) <=0x44F)
+      else if(0x410 <= static_cast<wchar_t>(*from)
+                    && static_cast<wchar_t>(*from) <=0x44F)
       {
-        *to = static_cast<char>(static_cast<unsigned wchar_t>(*from) - 0x350);
+        *to = static_cast<char>(static_cast<wchar_t>(*from) - 0x350);
       }
       else
       {

@@ -124,6 +124,7 @@ let OmniCpp_GlobalScopeSearch =  1
 let OmniCpp_MayCompleteArrow =  1 
 let TagList_title = "__Tag_List__"
 let Tlist_Use_Horiz_Window =  0 
+let OmniCpp_LocalSearchDecl =  0 
 let Tlist_Display_Prototype =  0 
 let Tlist_Ctags_Cmd = "ctags"
 let OmniCpp_DisplayMode =  0 
@@ -131,7 +132,6 @@ let OmniCpp_NamespaceSearch =  1
 let OmniCpp_ShowPrototypeInAbbr =  0 
 let OmniCpp_MayCompleteScope =  0 
 let Tlist_Highlight_Tag_On_BufEnter =  1 
-let OmniCpp_LocalSearchDecl =  0 
 let OmniCpp_ShowScopeInAbbr =  0 
 let Tlist_Show_Menu =  0 
 let Tlist_Max_Tag_Length =  10 
@@ -145,18 +145,21 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +60 codecvt\codecvt_cp866.hpp
-badd +0 test.cpp
-args X:\temp\facet\codecvt\codecvt_cp866.hpp X:\temp\facet\test.cpp
+badd +117 codecvt\codecvt_cp866.hpp
+badd +1 test.cpp
+badd +1 X:\temp\facet\codecvt\codecvt_cp866.hpp
+badd +1 X:\temp\facet\test.cpp
+badd +0 codecvt\codecvt_cp1251.hpp
+args X:\temp\facet\codecvt\codecvt_cp866.hpp X:\temp\facet\test.cpp x:\devel\facet\codecvt\codecvt_cp1251.hpp
 set lines=55 columns=155
 winpos 9 7
-edit test.cpp
+edit codecvt\codecvt_cp1251.hpp
 set splitbelow splitright
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
 argglobal
-2argu
+3argu
 lnoremap <buffer> " Э
 lnoremap <buffer> # №
 lnoremap <buffer> $ ;
@@ -332,12 +335,26 @@ setlocal nowinfixwidth
 set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 26) / 53)
+60
+normal zo
+112
+normal zo
+114
+normal zo
+127
+normal zo
+114
+normal zo
+112
+normal zo
+60
+normal zo
+let s:l = 127 - ((29 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+127
+normal! 044l
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
