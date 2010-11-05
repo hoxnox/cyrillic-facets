@@ -1,4 +1,4 @@
-#ifndef __CODECVT_CP1251_HPP__
+﻿#ifndef __CODECVT_CP1251_HPP__
 #define __CODECVT_CP1251_HPP__
 
 #include <locale>
