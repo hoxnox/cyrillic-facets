@@ -41,7 +41,7 @@ class unicyr_ctype : public ctype<wchar_t>
   protected:
     virtual bool do_is(mask m, wchar_t c) const
     {
-      std::map<mask, wchar_t>::const_iterator msk = masks.find(c);
+      std::map<wchar_t, mask>::const_iterator msk = masks.find(c);
       if(msk != masks.end())
         return msk->second & m;
       else
@@ -55,7 +55,7 @@ class unicyr_ctype : public ctype<wchar_t>
     {
       while(b != e)
       {
-        std::map<mask, wchar_t>::const_iterator msk = masks.find(*b);
+        std::map<wchar_t,mask>::const_iterator msk = masks.find(*b);
         if(msk != masks.end())
           *v = msk->first;
         else
@@ -86,7 +86,7 @@ class unicyr_ctype : public ctype<wchar_t>
 
     virtual wchar_t do_toupper(wchar_t c) const
     {
-      std::map<mask, wchar_t>::const_iterator msk = masks.find(c);
+      std::map<wchar_t, mask>::const_iterator msk = masks.find(c);
       if( msk != masks.end() )
       {
         if( this->do_is(lower,c) )
@@ -115,7 +115,7 @@ class unicyr_ctype : public ctype<wchar_t>
 
     virtual wchar_t do_tolower(wchar_t c) const
     {
-      std::map<mask, wchar_t>::const_iterator msk = masks.find(c);
+      std::map<wchar_t, mask>::const_iterator msk = masks.find(c);
       if( msk != masks.end() )
       {
         if( this->do_is(upper,c) )
@@ -186,7 +186,7 @@ class unicyr_ctype : public ctype<wchar_t>
   private:
     unicyr_ctype(const unicyr_ctype&);
     void operator=(const unicyr_ctype&);
-    std::map<mask, wchar_t> masks;
+    std::map<wchar_t, mask> masks;
 };
 
 #endif // __CTYPE_CP1251_HPP__
