@@ -1,3 +1,5 @@
+/**\author hoxnox <hoxnox@gmail.com>*/
+
 #ifndef __UNICYR_CTYPE_HPP__
 #define __UNICYR_CTYPE_HPP__
 
