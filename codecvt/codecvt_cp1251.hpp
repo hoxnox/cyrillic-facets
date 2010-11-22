@@ -1,4 +1,4 @@
-﻿#ifndef __CODECVT_CP1251_HPP__
+#ifndef __CODECVT_CP1251_HPP__
 #define __CODECVT_CP1251_HPP__
 
 #include <locale>
@@ -84,7 +84,7 @@ protected:
       {
         typename std::map<E, I>::const_iterator s;
         s = in_tab.lower_bound(*from);
-        if(s == in_tab.end())
+        if(s->first != *from || s == in_tab.end())
         {
           // ok from and to is not endings
           from_next = ++from;
@@ -127,7 +127,7 @@ protected:
       {
         typename std::map<I, E>::const_iterator s;
         s = out_tab.lower_bound(*from);
-        if(s == out_tab.end())
+        if( s->first != *from || s == out_tab.end())
         {
           // ok from and to is not endings
           from_next = ++from;

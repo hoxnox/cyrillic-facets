@@ -69,7 +69,7 @@ protected:
       {
         typename std::map<E, I>::const_iterator s;
         s = in_tab.lower_bound(*from);
-        if(s == in_tab.end())
+        if(s->first != *from || s == in_tab.end())
         {
           from_next = ++from;
           to_next = ++to;
@@ -116,7 +116,7 @@ protected:
       {
         typename std::map<I, E>::const_iterator s;
         s = out_tab.lower_bound(*from);
-        if(s == out_tab.end())
+        if(s->first != *from || s == out_tab.end())
         {
           from_next = ++from;
           to_next = ++to;

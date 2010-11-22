@@ -9,6 +9,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 #include "codecvt/codecvt_cp866.hpp"
 #include "codecvt/codecvt_cp1251.hpp"
