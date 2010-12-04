@@ -144,7 +144,7 @@ class unicyr_ctype : public ctype<wchar_t>
     /*Only ASCII symbols can be widen*/
     wchar_t do_widen(char c) const
     {
-      if(0 <= c && c <= 127)
+      if(static_cast<unsigned char>(c) <= 127)
         return static_cast<wchar_t>(c);
       else
         return 0;
