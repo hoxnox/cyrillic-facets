@@ -1,5 +1,3 @@
-/**\author hoxnox <hoxnox@gmail.com>*/
-
 #ifndef __CODECVT_CP1251_HPP__
 #define __CODECVT_CP1251_HPP__
 

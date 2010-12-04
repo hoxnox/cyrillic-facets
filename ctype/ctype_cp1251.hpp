@@ -1,5 +1,3 @@
-/**\author hoxnox <hoxnox@gmail.com>*/
-
 #ifndef __CTYPE_CP1251_HPP__
 #define __CTYPE_CP1251_HPP__
 
@@ -7,7 +5,8 @@
 
 using namespace std;
 
-/**@brief ctype facet modification to use with cp1251 codepage*/
+/**@brief Модификация фасета ctype для корректной работы с windows-1251
+ * кодировкой*/
 template<class Ch>
 class ctype_cp1251 : public ctype<Ch>
 {

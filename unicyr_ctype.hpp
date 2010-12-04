@@ -1,5 +1,3 @@
-/**\author hoxnox <hoxnox@gmail.com>*/
-
 #ifndef __UNICYR_CTYPE_HPP__
 #define __UNICYR_CTYPE_HPP__
 
@@ -43,7 +41,7 @@ class unicyr_ctype : public ctype<wchar_t>
   protected:
     virtual bool do_is(mask m, wchar_t c) const
     {
-      std::map<wchar_t, mask>::const_iterator msk = masks.find(c);
+      std::map<mask, wchar_t>::const_iterator msk = masks.find(c);
       if(msk != masks.end())
         return msk->second & m;
       else
@@ -57,7 +55,7 @@ class unicyr_ctype : public ctype<wchar_t>
     {
       while(b != e)
       {
-        std::map<wchar_t,mask>::const_iterator msk = masks.find(*b);
+        std::map<mask, wchar_t>::const_iterator msk = masks.find(*b);
         if(msk != masks.end())
           *v = msk->first;
         else
@@ -88,7 +86,7 @@ class unicyr_ctype : public ctype<wchar_t>
 
     virtual wchar_t do_toupper(wchar_t c) const
     {
-      std::map<wchar_t, mask>::const_iterator msk = masks.find(c);
+      std::map<mask, wchar_t>::const_iterator msk = masks.find(c);
       if( msk != masks.end() )
       {
         if( this->do_is(lower,c) )
@@ -117,7 +115,7 @@ class unicyr_ctype : public ctype<wchar_t>
 
     virtual wchar_t do_tolower(wchar_t c) const
     {
-      std::map<wchar_t, mask>::const_iterator msk = masks.find(c);
+      std::map<mask, wchar_t>::const_iterator msk = masks.find(c);
       if( msk != masks.end() )
       {
         if( this->do_is(upper,c) )
@@ -146,7 +144,7 @@ class unicyr_ctype : public ctype<wchar_t>
     /*Only ASCII symbols can be widen*/
     wchar_t do_widen(char c) const
     {
-      if(0 <= c && c <= 127)
+      if(static_cast<unsigned char>(c) <= 127)
         return static_cast<wchar_t>(c);
       else
         return 0;
@@ -188,7 +186,7 @@ class unicyr_ctype : public ctype<wchar_t>
   private:
     unicyr_ctype(const unicyr_ctype&);
     void operator=(const unicyr_ctype&);
-    std::map<wchar_t, mask> masks;
+    std::map<mask, wchar_t> masks;
 };
 
 #endif // __CTYPE_CP1251_HPP__

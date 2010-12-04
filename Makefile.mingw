@@ -29,7 +29,7 @@ CXX             = g++
 INCPATH         = -I"W:/system/devel/boost/include" \
                   -I"./"
 LINK            = g++
-LFLAGS          = -static -L"W:/system/devel/boost/libstatic"
+LFLAGS          = -static -L"W:/system/devel/boost/lib/gcc/static"
 LIBS            = -lboost_unit_test_framework-mgw45-mt-1_43
 DEL_FILE        = del /Q
 DEL_DIR         = rmdir /Q /S

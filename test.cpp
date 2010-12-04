@@ -9,10 +9,10 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 #include "codecvt/codecvt_cp866.hpp"
 #include "codecvt/codecvt_cp1251.hpp"
-#include "unicyr_ctype.hpp"
 
 using namespace std;
 
@@ -24,8 +24,8 @@ using namespace std;
 
 BOOST_AUTO_TEST_CASE( test_codecvt_cp866 )
 {
-  ofstream ofile("test.txt", std::ios::binary);
-  std::ostreambuf_iterator<char> writer(ofile);
+  wofstream ofile("test.txt", std::ios::binary);
+  std::ostreambuf_iterator<wchar_t> writer(ofile);
   writer   = 0x8F; // П
   ++writer = 0xE0; // р
   ++writer = 0xA8; // и
@@ -49,8 +49,8 @@ BOOST_AUTO_TEST_CASE( test_codecvt_cp866 )
 
 BOOST_AUTO_TEST_CASE( test_codecvt_cp1251 )
 {
-  ofstream ofile("test.txt", std::ios::binary);
-  std::ostreambuf_iterator<char> writer(ofile);
+  wofstream ofile("test.txt", std::ios::binary);
+  std::ostreambuf_iterator<wchar_t> writer(ofile);
   writer   = 0xCF; // П
   ++writer = 0xF0; // р
   ++writer = 0xE8; // и
@@ -70,13 +70,6 @@ BOOST_AUTO_TEST_CASE( test_codecvt_cp1251 )
   wchar_t wstr[13];
   ifile.getline(wstr, 13);
   BOOST_CHECK(std::wstring(wstr) == L"Привет, мир!");
-}
-
-BOOST_AUTO_TEST_CASE( unicyr_ctype_test )
-{
-  std::locale uctype(std::locale(""), new unicyr_ctype);
-  BOOST_CHECK(std::isalpha(L'А', uctype));
-  BOOST_CHECK(std::isdigit(L'1', uctype));
 }
 
 // EOF
