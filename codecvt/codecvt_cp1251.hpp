@@ -108,12 +108,12 @@ protected:
         return partial;
       }
       // ASCII
-      if(0 <= *from && *from <= 0x7F)
+      if((unsigned)*from <= 0x7F)
       {
         *to = static_cast<I>(*from);
       }
-      else if(0xC0 <= static_cast<unsigned char>(*from)
-                   && static_cast<unsigned char>(*from) <=0xFF)
+      else if(0xC0 <= (unsigned)(*from)
+                   && (unsigned)(*from) <=0xFF)
       {
         *to = static_cast<I>(static_cast<unsigned char>(*from) + 0x350);
       }

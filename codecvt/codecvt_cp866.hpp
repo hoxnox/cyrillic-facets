@@ -106,7 +106,7 @@ protected:
         return partial;
       }
       // ASCII
-      if(0 <= *from && *from <= 0x7F)
+      if((unsigned)*from <= 0x7F)
       {
         *to = static_cast<I>(*from);
       }
@@ -153,7 +153,7 @@ protected:
         to_next = to;
         return partial;
       }
-      if(0 <= *from && *from <= 0x7F)
+      if((unsigned)*from <= 0x7F)
       {
         *to = static_cast<unsigned char>(*from);
       }
