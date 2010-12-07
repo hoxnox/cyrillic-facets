@@ -43,7 +43,7 @@ class unicyr_ctype : public ctype<wchar_t>
     {
       std::map<mask, wchar_t>::const_iterator msk = masks.find(c);
       if(msk != masks.end())
-        return msk->second & m;
+        return (msk->second & m) != 0;
       else
         return ctype<wchar_t>::do_is(m,c);
     };
