@@ -1,12 +1,9 @@
 Main cyrillic facets realisations
 
-unicyr_ctype.hpp - Unicode cyrillic ctype facet
-ctype_cp1251.hpp - CP1251 codepage ctype facet for cyrillic
-codecvt/codecvt_cp1251.hpp - windows-1251 <-> UTF-8 codecvt facet (only
-                             cyrillic symbols)
-codecvt/codecvt_cp866.hpp - ibm-866 <-> UTF-8 codecvt facet  (only
-                            cyrillic symbols)
-
+codecvt - folder for codecvt facets
+  codecvt/codecvt_cp1251.hpp - windows-1251 <-> UNICODE
+  codecvt/codecvt_cp866.hpp - ibm-866 <-> UNICODE
 
 test.cpp - test suite for codecvt (need BOOST_TEST_FRAMEWORK), use
 Makefile.mingw (for Windows MinGW) and Makefile for building.
+
