@@ -10,7 +10,7 @@ class codecvt_cp866 : public std::codecvt<wchar_t, char, mbstate_t>
 {
   public:
 
-    typedef typename std::codecvt_base::result result;
+    typedef std::codecvt_base::result result;
     const result ok, partial, error, noconv;
 
     explicit codecvt_cp866(size_t r=0)
@@ -193,7 +193,7 @@ protected:
       }
       else
       {
-        typename std::map<char, wchar_t>::const_iterator s;
+        std::map<char, wchar_t>::const_iterator s;
         s = in_tab.lower_bound(*from);
         if(s->first != *from || s == in_tab.end())
         {
@@ -244,7 +244,7 @@ protected:
       }
       else
       {
-        typename std::map<wchar_t, char>::const_iterator s;
+        std::map<wchar_t, char>::const_iterator s;
         s = out_tab.lower_bound(*from);
         if(s->first != *from || s == out_tab.end())
         {
