@@ -5,8 +5,7 @@
 
 using namespace std;
 
-/**@brief Модификация фасета ctype для корректной работы с windows-1251
- * кодировкой*/
+/**@brief ctype facet modification for cp1251*/
 template<class Ch>
 class ctype_cp1251 : public ctype<Ch>
 {
@@ -157,7 +156,7 @@ class ctype_cp1251 : public ctype<Ch>
         *b = do_tolower(*b);
       return e;
     }
-/*
+/*  MARKED DEPRECATED
     Ch do_widen(char c) const;
     {
       if( 0 <= c <= 127 )
