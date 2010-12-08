@@ -1,5 +1,5 @@
-#ifndef __UNICYR_CTYPE_HPP__
-#define __UNICYR_CTYPE_HPP__
+#ifndef __CTYPE_UNICODE_HPP__
+#define __CTYPE_UNICODE_HPP__
 
 #include <locale>
 #include <map>
@@ -10,7 +10,7 @@ using namespace std;
  * alphabet and cyrillic extensions) symbols
  *
  * See ctype facet decl*/
-class unicyr_ctype : public ctype<wchar_t>
+class ctype_unicode : public ctype<wchar_t>
 {
   public:
     typedef ctype<wchar_t>::mask mask;
@@ -21,7 +21,7 @@ class unicyr_ctype : public ctype<wchar_t>
       alpha = ctype<wchar_t>::alpha
     };
 
-    explicit unicyr_ctype(size_t r = 0)
+    explicit ctype_unicode(size_t r = 0)
       : ctype<wchar_t>(r)
     {
       // initializing masks map
@@ -35,7 +35,7 @@ class unicyr_ctype : public ctype<wchar_t>
         masks[i] = lower | alpha;
     }
 
-    ~unicyr_ctype()
+    ~ctype_unicode()
     {}
 
   protected:
@@ -184,9 +184,9 @@ class unicyr_ctype : public ctype<wchar_t>
     }*/
 
   private:
-    unicyr_ctype(const unicyr_ctype&);
-    void operator=(const unicyr_ctype&);
+    ctype_unicode(const ctype_unicode&);
+    void operator=(const ctype_unicode&);
     std::map<mask, wchar_t> masks;
 };
 
-#endif // __CTYPE_CP1251_HPP__
+#endif // __CTYPE_UNICODE_HPP__
