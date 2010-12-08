@@ -43,7 +43,7 @@ class unicyr_ctype : public ctype<wchar_t>
     {
       std::map<mask, wchar_t>::const_iterator msk = masks.find(c);
       if(msk != masks.end())
-        return msk->second & m;
+        return (msk->second & m) != 0;
       else
         return ctype<wchar_t>::do_is(m,c);
     };
@@ -141,7 +141,8 @@ class unicyr_ctype : public ctype<wchar_t>
         *b = do_tolower(*b);
       return e;
     }
-    /*Only ASCII symbols can be widen*/
+
+	/* marked deprecated
     wchar_t do_widen(char c) const
     {
       if(static_cast<unsigned char>(c) <= 127)
@@ -162,7 +163,6 @@ class unicyr_ctype : public ctype<wchar_t>
       return b;
     }
 
-    /*Only ASCII symbols can be narrowed*/
     char do_narrow(wchar_t c, char def) const
     {
       if(0 <= c && c <= 127)
@@ -181,7 +181,7 @@ class unicyr_ctype : public ctype<wchar_t>
         ++b2;
       }
       return b;
-    }
+    }*/
 
   private:
     unicyr_ctype(const unicyr_ctype&);
