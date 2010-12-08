@@ -40,7 +40,7 @@ BOOST_AUTO_TEST_CASE( test_codecvt_cp866 )
   ++writer = 0x21; // !
   ofile.close();
   wifstream ifile("test.txt");
-  std::locale cp866(std::locale(""), new codecvt_cp866<wchar_t, char, mbstate_t>);
+  std::locale cp866(std::locale(""), new codecvt_cp866);
   ifile.imbue(cp866);
   wchar_t wstr[13];
   ifile.getline(wstr, 13);
@@ -65,7 +65,7 @@ BOOST_AUTO_TEST_CASE( test_codecvt_cp1251 )
   ++writer = 0x21; // !
   ofile.close();
   wifstream ifile("test.txt");
-  std::locale cp1251(std::locale(""), new codecvt_cp1251<wchar_t, char, mbstate_t>);
+  std::locale cp1251(std::locale(""), new codecvt_cp1251);
   ifile.imbue(cp1251);
   wchar_t wstr[13];
   ifile.getline(wstr, 13);
