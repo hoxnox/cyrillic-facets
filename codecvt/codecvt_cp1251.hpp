@@ -182,8 +182,7 @@ protected:
       {
         *to = static_cast<wchar_t>(*from);
       }
-      else if(0xC0 <= static_cast<unsigned char>(*from)
-                   && static_cast<unsigned char>(*from) <=0xFF)
+      else if(0xC0 <= static_cast<unsigned char>(*from))
       {
         *to = static_cast<wchar_t>(
                 static_cast<unsigned char>(*from) + 0x350);
@@ -231,8 +230,7 @@ protected:
       {
         *to = static_cast<unsigned char>(*from);
       }
-      else if(0x410 <= static_cast<unsigned char>(*from)
-                    && static_cast<unsigned char>(*from) <=0x44F)
+      else if(0x410 <= *from && *from <=0x44F)
       {
         *to = static_cast<char>(static_cast<wchar_t>(*from) - 0x350);
       }
