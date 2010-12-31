@@ -10,7 +10,7 @@ first: all
 #### Defige release/debug dependent vars
 ifdef debug
 OBJECTS_DIR   := Debug
-CXXFLAGS      = -Wall -ggdb -g3 -DDEBUG
+CXXFLAGS      = -Wall -ggdb -g3 -O0 -DDEBUG
 else
 OBJECTS_DIR   := Release
 CXXFLAGS      = -Wall -O2
@@ -54,7 +54,7 @@ $(OBJ_DIR)/%.obj: $(SRC_DIR)/%.cpp $(HDRS)
 
 all: mk_dir test.exe
 test.exe : $(OBJECTS_DIR)/test.obj
-	$(LINK) $(LFLAGS) -o $(OBJECTS_DIR)/test.exe $(OBJ) \
+	$(LINK) -static $(LFLAGS) -o $(OBJECTS_DIR)/test.exe $(OBJ) \
 		$(LIBS)
 
 .PHONY: all first
