@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #############
 # targets:
 #   all - build test and example application
@@ -60,6 +59,3 @@ test.exe : $(OBJECTS_DIR)/test.obj
 
 .PHONY: all first
 
-=======
-// TODO:
->>>>>>> 76915525ccfd763c294d5b178d4662633dc6de14

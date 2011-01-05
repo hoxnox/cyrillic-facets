@@ -9,18 +9,13 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-<<<<<<< HEAD
 #include <iterator>
-=======
-#include <sstream>
->>>>>>> 76915525ccfd763c294d5b178d4662633dc6de14
 
 #include "codecvt/codecvt_cp866.hpp"
 #include "codecvt/codecvt_cp1251.hpp"
 
 using namespace std;
 
-<<<<<<< HEAD
 BOOST_AUTO_TEST_CASE( test_codecvt_cp866 )
 {
   // writing test data
@@ -118,42 +113,10 @@ BOOST_AUTO_TEST_CASE( test_codecvt_cp866 )
   BOOST_REQUIRE(std::wstring(wstr) == L"АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ"
                                       L"абвгдеёжзийклмнопрстуфхцчшщьыъэюя");
   ifile.close();
-=======
-
-// TODO: codecvt/codecvt_cp1251.hpp
-// TODO: unicyr_ctype.hpp
-// TODO: ctype_cp1251.hpp
-
-
-BOOST_AUTO_TEST_CASE( test_codecvt_cp866 )
-{
-  wofstream ofile("test.txt", std::ios::binary);
-  std::ostreambuf_iterator<wchar_t> writer(ofile);
-  writer   = 0x8F; // П
-  ++writer = 0xE0; // р
-  ++writer = 0xA8; // и
-  ++writer = 0xA2; // в
-  ++writer = 0xA5; // е
-  ++writer = 0xE2; // т
-  ++writer = 0x2C; // ,
-  ++writer = 0x20; //  
-  ++writer = 0xAC; // м
-  ++writer = 0xA8; // и
-  ++writer = 0xE0; // р
-  ++writer = 0x21; // !
-  ofile.close();
-  wifstream ifile("test.txt");
-  std::locale cp866(std::locale(""), new codecvt_cp866);
-  ifile.imbue(cp866);
-  wchar_t wstr[13];
-  ifile.getline(wstr, 13);
-  BOOST_CHECK(std::wstring(wstr) == L"Привет, мир!");
->>>>>>> 76915525ccfd763c294d5b178d4662633dc6de14
 }
 
 BOOST_AUTO_TEST_CASE( test_codecvt_cp1251 )
 {
-<<<<<<< HEAD
   // writing test data
   ofstream ofile("test.txt", std::ios::binary);
   BOOST_REQUIRE(ofile);
@@ -249,29 +212,6 @@ BOOST_AUTO_TEST_CASE( test_codecvt_cp1251 )
   BOOST_REQUIRE(std::wstring(wstr) == L"АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ"
                                       L"абвгдеёжзийклмнопрстуфхцчшщьыъэюя");
   ifile.close();
-=======
-  wofstream ofile("test.txt", std::ios::binary);
-  std::ostreambuf_iterator<wchar_t> writer(ofile);
-  writer   = 0xCF; // П
-  ++writer = 0xF0; // р
-  ++writer = 0xE8; // и
-  ++writer = 0xE2; // в
-  ++writer = 0xE5; // е
-  ++writer = 0xF2; // т
-  ++writer = 0x2C; // ,
-  ++writer = 0x20; //  
-  ++writer = 0xEC; // м
-  ++writer = 0xE8; // и
-  ++writer = 0xF0; // р
-  ++writer = 0x21; // !
-  ofile.close();
-  wifstream ifile("test.txt");
-  std::locale cp1251(std::locale(""), new codecvt_cp1251);
-  ifile.imbue(cp1251);
-  wchar_t wstr[13];
-  ifile.getline(wstr, 13);
-  BOOST_CHECK(std::wstring(wstr) == L"Привет, мир!");
->>>>>>> 76915525ccfd763c294d5b178d4662633dc6de14
 }
 
 // EOF

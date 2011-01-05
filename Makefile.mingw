@@ -30,11 +30,7 @@ INCPATH         = -I"W:/system/devel/boost/include" \
                   -I"./"
 LINK            = g++
 LFLAGS          = -static -L"W:/system/devel/boost/lib/gcc/release/static"
-<<<<<<< HEAD
 LIBS            = -lboost_unit_test_framework
-=======
-LIBS            = -lboost_unit_test_framework-mgw46-mt-1_45
->>>>>>> 76915525ccfd763c294d5b178d4662633dc6de14
 DEL_FILE        = del /Q
 DEL_DIR         = rmdir /Q /S
 CHK_DIR_NEXISTS = if not exist
@@ -49,15 +45,9 @@ SRC  = $(addprefix $(SRC_DIR)/,$(SRC))
 
 ### Build directory creation/deletion
 mk_dir:
-<<<<<<< HEAD
 	@echo $(shell $(CHK_DIR_NEXISTS) $(OBJECTS_DIR) $(MKDIR) $(OBJECTS_DIR))
 clean:
 	@echo $(shell $(CHK_DIR_EXISTS) $(OBJECTS_DIR) $(DEL_DIR) $(OBJECTS_DIR))
-=======
-	-@$(CHK_DIR_NEXISTS) $(OBJECTS_DIR) $(MKDIR) $(OBJECTS_DIR)
-clean:
-	-@$(CHK_DIR_EXISTS) $(OBJECTS_DIR) $(DEL_DIR) $(OBJECTS_DIR)
->>>>>>> 76915525ccfd763c294d5b178d4662633dc6de14
 
 #### Implicit rules
 $(OBJ_DIR)/%.obj: $(SRC_DIR)/%.cpp $(HDRS)
