@@ -109,28 +109,19 @@ protected:
         to_next = to;
         return partial;
       }
+      const unsigned char ufrom = static_cast<unsigned char>(*from);
       // ASCII
-      if(static_cast<unsigned char>(*from) <= 0x7F)
-      {
+      if(ufrom <= 0x7F)
         *to = static_cast<wchar_t>(*from);
-      }
-      else if(0x80 <= static_cast<unsigned char>(*from)
-                   && static_cast<unsigned char>(*from) <=0xAF)
-      {
-        *to = static_cast<wchar_t>(
-                static_cast<unsigned char>(*from) + 0x390);
-      }
-      else if(0xE0 <= static_cast<unsigned char>(*from)
-                   && static_cast<unsigned char>(*from) <=0xEF)
-      {
-        *to = static_cast<wchar_t>(
-                static_cast<unsigned char>(*from) + 0x360);
-      }
+      else if(0x80 <= ufrom && ufrom <= 0xAF)
+        *to = static_cast<wchar_t>(ufrom + 0x390);
+      else if(0xE0 <= ufrom && ufrom <= 0xEF)
+        *to = static_cast<wchar_t>(ufrom + 0x360);
       else
       {
         std::map<unsigned char, wchar_t>::const_iterator s;
-        s = in_tab.lower_bound(*from);
-        if(s->first != *from || s == in_tab.end())
+        s = in_tab.lower_bound(ufrom);
+        if(s->first != ufrom || s == in_tab.end())
         {
           from_next = ++from;
           to_next = ++to;
@@ -164,19 +155,11 @@ protected:
         return partial;
       }
       if(0 <= *from && *from <= 0x7F)
-      {
         *to = static_cast<unsigned char>(*from);
-      }
-      else if(0x410 <= *from
-                    && *from <= 0x43F)
-      {
+      else if(0x410 <= *from && *from <= 0x43F)
         *to = static_cast<unsigned char>(*from - 0x390);
-      }
-      else if(0x440 <= *from
-                    && *from <=0x44F)
-      {
+      else if(0x440 <= *from && *from <=0x44F)
         *to = static_cast<unsigned char>(*from - 0x360);
-      }
       else
       {
         std::map<wchar_t, unsigned char>::const_iterator s;
