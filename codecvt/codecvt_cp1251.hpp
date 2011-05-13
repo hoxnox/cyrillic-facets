@@ -1,3 +1,10 @@
+/**@author hoxnox <hoxnox@gmail.com>
+ * @copyright (c) 2010 hoxnox <hoxnox@gmail.com>
+ * @license LGPL
+ * @brief Codecvt cp1251 facet implementation.
+ * 
+ * This file is a part of hoxnox's facets project*/
+
 #ifndef __CODECVT_CP1251_HPP__
 #define __CODECVT_CP1251_HPP__
 

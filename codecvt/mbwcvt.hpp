@@ -1,8 +1,13 @@
-﻿/**@author hoxnox <hoxnox@gmail.com>
+﻿/**@copyright (c) 2010 hoxnox <hoxnox@gmail.com>
+ * @license LGPL
+ * @brief utf8->wchar wchar->utf8
+ *
+ * This file is a part of hoxnox's facets project
+ *
  * This header contains C++ style functions, used to convert between
  * multibyte and wide chracter strings. You must know the size of strings
  * for using C-style mbstowcs and wcstombs. In this case you can use any
- * container you whant:
+ * container you want:
  * @code
  *  std::string str;
  *  std::vector<wchar_t> wstr;
