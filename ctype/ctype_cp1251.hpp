@@ -68,7 +68,7 @@ class ctype_cp1251 : public ctype<Ch>
     virtual bool do_is(mask m, Ch c) const
     {
       if( 0 <= c && c <= 127 )
-        return ctype<Ch>::is(m, c);
+        return ctype<Ch>::do_is(m, c);
       else if( -128 <= c && c < 0 )
         return ext_table[static_cast<size_t>(c*-1)] & m;
       else
@@ -103,9 +103,11 @@ class ctype_cp1251 : public ctype<Ch>
 
     virtual Ch do_toupper(Ch c) const
     {
+      if(!do_is(lower, c))
+        return c;
       if( 0 <= c && c <= 127 )
       {
-        return ctype<Ch>::toupper(c);
+        return ctype<Ch>::do_toupper(c);
       }
       else if( -128 <= c && c < 0 && do_is(lower, c))
       {
@@ -131,9 +133,11 @@ class ctype_cp1251 : public ctype<Ch>
 
     virtual Ch do_tolower(Ch c) const
     {
+      if(!do_is(upper, c))
+        return c;
       if( 0 <= c && c <= 127 )
       {
-        return ctype<Ch>::tolower(c);
+        return ctype<Ch>::do_tolower(c);
       }
       else if( -128 <= c && c < 0 && do_is(upper, c))
       {
