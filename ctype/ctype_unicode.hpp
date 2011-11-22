@@ -26,13 +26,13 @@ class ctype_unicode : public ctype<wchar_t>
     {
       // initializing masks map
       for(wchar_t i = 0x400; i <= 0x40F; i++)
-        masks[i] = upper | alpha;
+        masks[i] = upper | alpha | print;
       for(wchar_t i = 0x410; i <= 0x42F; i++)
-        masks[i] = upper | alpha;
+        masks[i] = upper | alpha | print;
       for(wchar_t i = 0x430; i <= 0x44F; i++)
-        masks[i] = lower | alpha;
+        masks[i] = lower | alpha | print;
       for(wchar_t i = 0x450; i <= 0x45F; i++)
-        masks[i] = lower | alpha;
+        masks[i] = lower | alpha | print;
     }
 
     ~ctype_unicode()
