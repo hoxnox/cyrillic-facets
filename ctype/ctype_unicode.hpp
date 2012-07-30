@@ -18,7 +18,8 @@ class ctype_unicode : public ctype<wchar_t>
     enum{
       lower = ctype<wchar_t>::lower,
       upper = ctype<wchar_t>::upper,
-      alpha = ctype<wchar_t>::alpha
+      alpha = ctype<wchar_t>::alpha,
+      print = ctype<wchar_t>::print
     };
 
     explicit ctype_unicode(size_t r = 0)
