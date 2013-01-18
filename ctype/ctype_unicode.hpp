@@ -22,7 +22,7 @@ class ctype_unicode : public ctype<wchar_t>
     };
 
     explicit ctype_unicode(size_t r = 0)
-      : ctype<wchar_t>(r)
+      : std::ctype<wchar_t>(r)
     {
       // initializing masks map
       for(wchar_t i = 0x400; i <= 0x40F; i++)
