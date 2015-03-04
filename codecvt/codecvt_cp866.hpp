@@ -112,7 +112,7 @@ protected:
     {
       if(to == to_end)
       {
-        from_next = ++from;
+        from_next = from;
         to_next = to;
         return partial;
       }
@@ -157,7 +157,7 @@ protected:
     {
       if(to == to_end)
       {
-        from_next = ++from;
+        from_next = from;
         to_next = to;
         return partial;
       }
