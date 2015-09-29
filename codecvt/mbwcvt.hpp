@@ -92,7 +92,7 @@ input_iterator mbstowcs(input_iterator b,
         return i;
       *o = first*0x40 + (static_cast<UChar>(*i) - 0x80);
     }
-    else if(static_cast<UChar>(*i)/0x8 == 0xE)  // meet 1110xxxx byte
+    else if(static_cast<UChar>(*i)/0x10 == 0xE)  // meet 1110xxxx byte
     {
       /* TODO
       if(sizeof(WChar) < 3*sizeof(Char))
@@ -106,7 +106,7 @@ input_iterator mbstowcs(input_iterator b,
       *o = first*(0x40*0x40) + second*0x40
                             + (static_cast<UChar>(*i) - 0x80);
     }
-    else if(static_cast<UChar>(*i)/0x4 == 0x1E) // meet 11110xxx byte
+    else if(static_cast<UChar>(*i)/0x8 == 0x1E) // meet 11110xxx byte
     {
       /* TODO
       if(sizeof(WChar) < 4*sizeof(Char))
